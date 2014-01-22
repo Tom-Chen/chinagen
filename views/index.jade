@@ -1,0 +1,71 @@
+﻿extends layout
+block head
+  meta(charset="UTF-8")
+block content
+  h1 Your restaurant name is:
+  h2#english
+  h2#chinese
+  p Refresh for a new name.
+  p A love letter to all those sketchy hole-in-the-wall yellow-signed inner city Chinese restaurants of my youth.
+  script(type='text/javascript').
+    var prefixes = {
+      'China': '中國',
+      'Hunan': '湖南',
+      'Beijing': '北京',
+      'Shanghai': '上海',
+      'Peking': '北京',
+      'Sìchuān': '四川',
+      'Mongolian': '蒙文',
+      'Lucky': '幸運',
+      'Red': '红',
+      'Jade': '玉',
+      'Grand': '盛大',
+      'Dragon': '龍',
+      'Tiger': '虎',
+      'King': '王',
+      'Panda': '熊猫',
+      'Master': '大師',
+      'East': '東',
+      'Little': '小',
+      'Mandarin': '柑',
+      'Happy': '快樂',
+      'Golden': '金黃',
+      'Bamboo': '竹',
+      'Jasmine': '茉莉',
+      'Imperial': '禦',
+      'Shining': '彪炳',
+      'Sun': '太陽',
+      'Lunar': '太陰'
+    };
+    var suffixes = {
+      'Empire': '帝國',
+      'Garden': '花園',
+      'Dragon': '龍',
+      'Moon': '月亮',
+      'Buffet': '自助餐',
+      'Wok': '炒鍋',
+      'Temple': '廟',
+      'King': '王',
+      'Star': '星',
+      'Kitchen': '廚房',
+      'House': '房子',
+      'Bistro': '小酒館',
+      'Gourmet': '美食',
+      'Dragon': '龍',
+      'Kingdom': '王國',
+      'Fortune': '運氣',
+      'Chef': '廚師',
+      'Sun': '太陽'
+    };
+    
+    var prefixKeys = Object.keys(prefixes);
+    var engPrefix = prefixKeys[Math.floor(Math.random() * prefixKeys.length)];
+    
+    var suffixKeys = Object.keys(suffixes);
+    var engSuffix = suffixKeys[Math.floor(Math.random() * suffixKeys.length)];
+    
+    var engResult = engPrefix + ' ' + engSuffix;
+    var chiResult = prefixes[engPrefix] + suffixes[engSuffix];
+    
+    document.getElementById('english').innerHTML=engResult;
+    document.getElementById('chinese').innerHTML=chiResult;
