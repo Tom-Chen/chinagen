@@ -1,12 +1,12 @@
 ﻿extends layout
 block head
+  meta(name='description', content='A love letter to all those sketchy hole-in-the-wall yellow-signed inner city Chinese restaurants of my youth.')
   meta(charset="UTF-8")
 block content
   h1 Your restaurant name is:
-  h2#english
-  h2#chinese
-  p Refresh for a new name.
+  h2#result
   p A love letter to all those sketchy hole-in-the-wall yellow-signed inner city Chinese restaurants of my youth.
+  p#yelp
   script(type='text/javascript').
     var prefixes = {
       'China': '中國',
@@ -66,6 +66,7 @@ block content
     
     var engResult = engPrefix + ' ' + engSuffix;
     var chiResult = prefixes[engPrefix] + suffixes[engSuffix];
+    var yelpString = "<a href=\"http://www.yelp.com/search?find_desc=" + engPrefix + '+' + engSuffix + "\" target=\"_blank\">" + "Is this already a thing? Search on Yelp" + "</a";
     
-    document.getElementById('english').innerHTML=engResult;
-    document.getElementById('chinese').innerHTML=chiResult;
+    document.getElementById('result').innerHTML=engResult + " (" + chiResult + ")";
+    document.getElementById('yelp').innerHTML=yelpString;
